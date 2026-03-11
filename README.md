@@ -16,6 +16,7 @@ curl -fsSL https://raw.githubusercontent.com/tylerthebuildor/.dotfiles/main/inst
 | `aliases` | Shortcuts for git, apps, and more |
 | `functions` | Utility functions (`server`, `pushkey`, `shellfiles`, etc.) |
 | `path` | PATH exports and environment variables |
+| `vim` | Vim settings (mouse, NERDTree, syntax) |
 | `install.sh` | Automated setup script |
 
 ## 🔧 Useful Commands
@@ -29,6 +30,16 @@ curl -fsSL https://raw.githubusercontent.com/tylerthebuildor/.dotfiles/main/inst
 | `shellfiles` | Show all shell config files and their contents |
 | `path` | List PATH entries one per line |
 | `fs [path]` | Show file or directory size |
+
+## ✏️ Vim
+
+The install script sets up [vim-plug](https://github.com/junegunn/vim-plug) and [NERDTree](https://github.com/preservim/nerdtree) automatically. Vim config lives in `~/.dotfiles/vim` and is sourced from `~/.vimrc`.
+
+| Feature | Detail |
+|---------|--------|
+| 🖱️ Mouse | Click, drag, scroll — `set mouse=a` |
+| 📁 File tree | NERDTree sidebar — toggle with `Ctrl+N` |
+| 🎨 Syntax | Highlighting + filetype detection |
 
 ## 🐚 Shell Config Files
 
