@@ -2,7 +2,7 @@
 set -e
 
 DOTFILES_DIR="$HOME/.dotfiles"
-DOTFILES_REPO="https://github.com/tylerbuchea/.dotfiles.git"
+DOTFILES_REPO="https://github.com/tylerthebuildor/.dotfiles.git"
 
 # Install oh-my-zsh if not present
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

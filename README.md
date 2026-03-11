@@ -1,19 +1,10 @@
 # Tyler's Dotfiles
 
-## Quick Install
+## Install
 
 ```
-cd ~
-git clone https://github.com/tylerbuchea/.dotfiles.git
-~/.dotfiles/install.sh
+curl -fsSL https://raw.githubusercontent.com/tylerthebuildor/.dotfiles/main/install.sh | bash
 ```
-
-## What it does
-
-- Installs [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) if not already installed
-- Clones this repo to `~/.dotfiles`
-- Sources `~/.dotfiles/includes` from your `.zshrc`
-- Sets zsh plugins: `git`, `z`
 
 ## Shell Config Files
 
