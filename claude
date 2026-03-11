@@ -1,0 +1,18 @@
+# ---------------------
+# Claude Aliases
+# ---------------------
+
+# Rename screenshots on the Desktop to short kebab-case names based on their content
+function screenshots() {
+  claw "
+    Look at screenshot files matching ~/Desktop/Screenshot*.png only.
+    Do NOT recurse into any subdirectories on the Desktop.
+    Do NOT rename or touch any files outside ~/Desktop.
+    For each matching file, read the image, determine what it shows,
+    and rename it to a short descriptive kebab-case name
+    (e.g. slack-thread-api-error.png, vscode-diff-view.png).
+    Keep names under 5 words.
+    Only rename files that still have the default Screenshot naming pattern.
+    Print a summary of old name -> new name for each file renamed.
+  "
+}
