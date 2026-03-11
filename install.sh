@@ -86,5 +86,4 @@ fi
 # Done
 # ---------------------
 echo ""
-echo "✅ All done!"
-source "$HOME/.zshrc"
+echo "✅ All done! Restart your shell or run: source ~/.zshrc"
