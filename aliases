@@ -1,0 +1,18 @@
+# ---------------------
+# Aliases
+# ---------------------
+
+# Claude
+alias claw='claude --permission-mode bypassPermissions --'
+
+# Git
+alias gds="git diff --stat"
+alias gitwho="git shortlog -s -n"
+alias prevtags="git tag --sort=taggerdate | tail -n3"
+
+# General
+alias sourcez="source ~/.zshrc"
+alias c="clear"
+
+# Apps
+alias brave="open -a 'Brave Browser'"

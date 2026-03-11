@@ -1,0 +1,147 @@
+# ---------------------
+# General
+# ---------------------
+
+# VS Code: add to workspace and cd into it (defaults to current directory)
+function ca() {
+	local dir="${1:-.}"
+	code --add "$dir"
+	cd "$dir"
+}
+
+# Open dotfiles in VS Code
+function dotfiles() {
+	code --add ~/.dotfiles
+	cd ~/.dotfiles
+}
+
+# Copy SSH key to a remote host ($1 = user@host, $2 = optional key path)
+function pushkey() {
+	local key="$2"
+	if [ -z "$key" ]; then
+		local keys=(~/.ssh/*.pub)
+		if [ ${#keys[@]} -eq 0 ]; then
+			echo "No public keys found in ~/.ssh/"
+			return 1
+		elif [ ${#keys[@]} -eq 1 ]; then
+			key="${keys[1]}"
+		else
+			echo "Multiple keys found:"
+			for i in {1..${#keys[@]}}; do
+				echo "  $i) ${keys[$i]}"
+			done
+			echo -n "Select key: "
+			read choice
+			key="${keys[$choice]}"
+		fi
+	fi
+	echo "Installing $key to $1..."
+	cat "$key" | ssh $1 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+}
+
+# List PATH entries, one per line
+function path() {
+	echo $PATH | tr ":" "\n"
+}
+
+# Start a simple HTTP server in the current directory
+function server() {
+	local port="${1:-8000}"
+	python3 -m http.server $port
+}
+
+# Show file or directory size
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh
+	else
+		local arg=-sh
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@"
+	else
+		du $arg .[^.]* *
+	fi
+}
+
+# Show all shell config files and their contents
+function shellfiles() {
+	local files=(
+		~/.zshenv
+		~/.zprofile
+		~/.zshrc
+		~/.zlogin
+		~/.bash_profile
+		~/.bashrc
+		~/.profile
+		/etc/paths
+	)
+	for f in "${files[@]}"; do
+		echo "========================================"
+		if [ -f "$f" ]; then
+			echo "$f"
+			echo "========================================"
+			cat "$f"
+		else
+			echo "$f (not found)"
+			echo "========================================"
+		fi
+		echo ""
+	done
+}
+
+# ---------------------
+# Solana CLI Helpers
+# ---------------------
+
+# List all keypairs and their addresses
+function keys() {
+	for filename in ~/.config/solana/cli/*.json; do
+		echo "$filename $(solana -k $filename address)"
+	done
+	echo "---------"
+	for filename in ~/.config/solana/cli/*.yml; do
+		echo "$filename"
+	done
+}
+
+# Show SPL token accounts for all keypairs
+function spl() {
+	KP="${$(solana config get keypair)/Key Path: /}"
+	for filename in ~/.config/solana/cli/*.json; do
+		solana config set -k $filename &>/dev/null
+		echo "$filename"
+		echo "$(spl-token accounts)"
+		echo "---------"
+		echo ""
+	done
+	solana config set -k $KP
+}
+
+# Show SOL balance for all keypairs
+function balance() {
+	for filename in ~/.config/solana/cli/*.json; do
+		echo "$filename $(solana -k $filename address) $(solana -k $filename balance -um)"
+	done
+	echo "---------"
+	for filename in ~/.config/solana/cli/*.yml; do
+		echo "$filename"
+	done
+}
+
+# Open Solana address in various explorers
+function solanafm() {
+	brave "https://solana.fm/address/$1"
+}
+
+function solscan() {
+	brave "https://solscan.io/account/$1"
+}
+
+function birdeye() {
+	brave "https://birdeye.so/token/$1?chain=solana"
+}
+
+function jup() {
+	brave "https://jup.ag/tokens/$1"
+}

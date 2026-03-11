@@ -1,0 +1,12 @@
+# ---------------------
+# PATH & Environment
+# ---------------------
+
+# Dotfiles scripts
+export PATH=~/.dotfiles/bin:$PATH
+
+# Local bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# Default editor
+export EDITOR=vim
