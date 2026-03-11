@@ -16,6 +16,7 @@ curl -fsSL https://raw.githubusercontent.com/tylerthebuildor/.dotfiles/main/inst
 | `aliases` | Shortcuts for git, apps, and more |
 | `functions` | Utility functions (`server`, `pushkey`, `shellfiles`, etc.) |
 | `path` | PATH exports and environment variables |
+| `claude` | Claude Code shell functions |
 | `vim` | Vim settings (mouse, NERDTree, syntax) |
 | `install.sh` | Automated setup script |
 
@@ -40,6 +41,14 @@ The install script sets up [vim-plug](https://github.com/junegunn/vim-plug) and 
 | 🖱️ Mouse | Click, drag, scroll — `set mouse=a` |
 | 📁 File tree | NERDTree sidebar — toggle with `Ctrl+N` |
 | 🎨 Syntax | Highlighting + filetype detection |
+
+## 🤖 Claude
+
+The `claude` file defines shell functions that use [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (`claw`) for AI-powered tasks.
+
+| Command | What it does |
+|---------|-------------|
+| `screenshots` | Rename `~/Desktop/Screenshot*.png` files to short, descriptive kebab-case names based on their content |
 
 ## 🐚 Shell Config Files
 
