@@ -2,6 +2,12 @@
 # General
 # ---------------------
 
+# Google Cloud Re-Auth (one sign-in covers gcloud + application-default creds)
+function gauth() {
+  CLOUDSDK_COMPONENT_MANAGER_DISABLE_UPDATE_CHECK=1 \
+    gcloud auth login --update-adc --launch-browser --brief --quiet
+}
+
 # VS Code: add to workspace and cd into it (defaults to current directory)
 function ca() {
 	local dir="${1:-.}"

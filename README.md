@@ -15,7 +15,7 @@ curl -fsSL https://raw.githubusercontent.com/tylerthebuildor/.dotfiles/main/inst
 | `includes` | Sources everything below |
 | `aliases` | Shortcuts for git, apps, and more |
 | `functions` | Utility functions (`server`, `pushkey`, `shellfiles`, etc.) |
-| `path` | PATH exports and environment variables |
+| `env` | Environment variables (editor). PATH stays in each machine's `~/.zshrc` |
 | `claude` | Claude Code shell functions |
 | `vim` | Vim settings (mouse, NERDTree, syntax) |
 | `install.sh` | Automated setup script |

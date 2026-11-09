@@ -1,0 +1,8 @@
+# ---------------------
+# Environment
+# ---------------------
+# Preferences that hold on any machine. PATH is not here: what's installed
+# differs per machine, so each machine's ~/.zshrc owns its own PATH.
+
+# Default editor
+export EDITOR=vim
